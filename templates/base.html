@@ -13,66 +13,121 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
 
   <body>
-    <header>
-      <nav class="navbar bg-white navbar-white navbar-expand-lg shadow-sm">
-        <div class="container-fluid">
-          <a class="navbar-brand cHover cGreen fs-2" href="{% url 'index' %}">
-            NEXTLEVEL
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 fs-5">
-              <li class="nav-item">
-                <a
-                  class="nav-link active cHover"
-                  aria-current="page"
-                  href="{% url 'index' %}"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active cHover" href="#contact">Contact Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active cHover" href="">Online Booking</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <!--Messages Start-->
-      {% if messages %} {% for message in messages %}
-      <div
-        class="alert alert-success alert-dismissible fade show text-center"
-        role="alert"
-      >
-        <h3 class="display-3">{{ message }}</h3>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"
+          >NEXT<span class="brand-color-logo">LEVEL</span></a
+        >
         <button
+          class="navbar-toggler"
           type="button"
-          class="btn-close fs-1 position-absolute top-50 start-0 translate-middle-y"
-          data-bs-dismiss="alert"
-          aria-label="Close"
-        ></button>
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'index' %}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'booking' %}">Online Booking</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Blog</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img src="" />
+                Account
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Register</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a href="{% url 'booking' %}" class="btn btn-brand" role="button"
+            >Online Booking</a
+          >
+        </div>
       </div>
-      {% endfor %} {% endif %}
-      <!--Messages End-->
-    </header>
+    </nav>
+    <!--Messages Start-->
+    {% if messages %} {% for message in messages %}
+    <div
+      class="alert alert-success alert-dismissible fade show text-center"
+      role="alert"
+    >
+      <h3 class="display-3">{{ message }}</h3>
+      <button
+        type="button"
+        class="btn-close fs-1 position-absolute top-50 start-0 translate-middle-y"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endfor %} {% endif %}
+    <!--Messages End-->
 
     {% block body %} {% endblock %}
+    <!--footer-->
+    <footer>
+      <div class="footer-top text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h4 class="navbar-brand">
+                NEXT<span class="brand-color-logo">LEVEL</span>
+              </h4>
+              <p>
+                Contrary to popular belief, Lorem Ipsum is not simply random
+                text. It has roots in a piece of classical Latin literature from
+              </p>
+              <div class="col-auto social-icons">
+                <a href="#"><i class="bx bxl-facebook"></i></a>
+                <a href="#"><i class="bx bxl-twitter"></i></a>
+                <a href="#"><i class="bx bxl-instagram"></i></a>
+                <a href="#"><i class="bx bxl-pinterest"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0">Copyright@2020. All rights Reserved</p>
+      </div>
+    </footer>
 
     <!-- JavaScript Bundle with Popper -->
     <script
