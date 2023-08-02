@@ -129,3 +129,12 @@ class BookingSubmitView(View):
         z = datetime.strptime(x, "%Y-%m-%d")
         y = z.strftime('%A')
         return y
+
+
+class UserPanelView(ListView):
+    template_name = "userPanel.html"
+    model = Appointment
+    context_object_name = 'appointments'
+
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user).order_by('day', 'time')
